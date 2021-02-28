@@ -57,7 +57,7 @@ pip install pymatgen
 ## Dataset
 1. Download the compressed file of our dataset using [this link](https://widgets.figshare.com/articles/12522524/embed?show_title=1)
 2. Unzip its content ( a directory named 'DATA')
-3. Move the DATA directory in your GATGNN directory. i.e. such that the path GATGNN/DATA now exists.
+3. Move the DATA directory in your AML_Roost directory. i.e. such that the datapath now exists.
 
 <a name="usage"></a>
 ## Usage
@@ -71,5 +71,5 @@ python Experiment.py --budget 50 --kappa 100 --candidate_out_path path/you/prefe
 The generated materials and their predicted property will be automatically generated under specified folder
 
 #### Evaluating the performance of a model trained by active-learning-augemented data
- Upon acquire active-learning augumented data, one can train and evaluate a screening model using Roost package.
+ Upon acquire active-learning augumented data, one can train and evaluate a screening model's performance using Roost package and GAN generated dataset.
 
