@@ -25,7 +25,7 @@ The package provides 3 major functions:
 - Generate material cadidates' cif files based on element substitution (based on ELMD). 
 
 The following paper describes the details of the our framework:
-[Active learning based generative design for discovery of wide band gap materials](https://arxiv.org/pdf/2003.13379blablabla.pdf)
+[Active learning based generative design for discovery of wide band gap materials](https://arxiv.org/pdf/.pdf)
 
 
 
@@ -56,7 +56,7 @@ pip install pymatgen
 <a name="dataset"></a>
 ## Dataset
 1. Download the compressed file of our dataset using [this link](https://figshare.com/articles/dataset/bd_AML_whole_init_300_csv/14132270)
-2. Unzip its content ( two .csv files')
+2. Unzip its content ( two .csv files' and 5 pre-trained models)
 3. Move the csv files in your AML_Roost directory. i.e. such that the datapath now exists.
 
 <a name="usage"></a>
@@ -72,4 +72,5 @@ The generated materials and their predicted property will be automatically gener
 
 #### Evaluating the performance of a model trained by active-learning-augemented data
  Upon acquire active-learning augumented data, one can train and evaluate a screening model's performance using Roost package and GAN generated dataset.
+ The 5 pre-trained models in figshare link are corresponding to Exp1 ~ Exp3 in the paper.
 
