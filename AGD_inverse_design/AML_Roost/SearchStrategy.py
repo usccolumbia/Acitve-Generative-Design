@@ -13,12 +13,14 @@ from util import pred_matrix2formula
 import csv
 
 class SearchStrategy:
-    def __init__(self, boundary, budget, target_func, mode, satisfactory_value, initial_para, initial_target):
+    def __init__(self, boundary, budget, target_func, mode, satisfactory_value, initial_para, initial_target, kappa, outpath):
         self.pbounds = boundary
         self.target_func = target_func
         self.mode = mode
         self.initial_para = initial_para
         self.initial_target = initial_target
+        self.kappa = kappa
+        self.outpath = outpath
         if self.mode == 2:
             self.budget = 100000000000
             self.satisfactory_value = satisfactory_value
@@ -58,7 +60,7 @@ class SearchStrategy:
             random_state=42,
         )
         # criteria to choose next sample
-        utility = UtilityFunction(kind="ucb", kappa=5, xi=0.0)
+        utility = UtilityFunction(kind="ucb", kappa=self.kappa, xi=0.0)
         # add known training set to bo, help it to build a Gaussian Process
         for ip, it in zip(self.initial_para, self.initial_target):
             optimizer.register(
@@ -123,7 +125,6 @@ class SearchStrategy:
                     optimizer._gp.fit(optimizer._space.params, optimizer._space.target)
 
                 #print("Next point to probe is:", next_point_to_probe)
-                #probe_candidates.append(next_point_to_probe)
                 if time >= 20:
                     break
             df_suggestion = pd.DataFrame(probe_candidates, columns= ["composition"])
@@ -153,12 +154,12 @@ class SearchStrategy:
             for form, tar in zip(probe_candidates, target_candidates):
                 rec = form + ',' + str(tar)
                 record.append(rec)
-            with open('./log_files/exp3_roost_recommandation_budget10000_initial1000_kappa5_127.txt', 'a+') as f:
+            with open(self.outpath +'.txt', 'a+') as f:
                 f.write('\n')
                 f.write('\n'.join(record))
 
             _4plot_max.append(optimizer.max['target'])
-        df_probed.to_csv('./log_files/exp3_suggestted_training_budget10000_initial1000_kappa5_127.csv')
+        df_probed.to_csv(self.outpath + '.csv')
 
         if self.mode == 1:
             TrendPlot.TrendPlot.bst_vs_no(_4plot_max)
