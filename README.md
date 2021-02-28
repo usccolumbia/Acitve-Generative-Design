@@ -63,24 +63,13 @@ pip install pymatgen
 ## Usage
 #### Training a new model
 Once all the aforementionned requirements are satisfied, one can easily generate target property material candidates by running Experiment.py in the terminal along with the specification of the appropriate flags. At the bare minimum, using --budget to specify the active learning budget and --kappa to control balance between exploration and exploitation.
-- Example. Train a model on the bulk-modulus property using the CGCNN dataset.
+- Example. start active-learning process given budget and kappa.
 ```bash
 python Experiment.py --budget 50 --kappa 100 --candidate_out_path path/you/prefer
 ```
 
 The generated materials and their predicted property will be automatically generated under specified folder
 
-#### Evaluating the performance of a trained model
-Upon training a GATGNN, one can evaluate its performance using __evaluate.py__ in the terminal exactly the same way as __train.py__. *It is IMPORTANT that one runs __evaluate.py__ with the exact same flags as it was done when prior training the model.*
-- Example-1. Evaluate the performance of a model trained on the bulk-modulus property using the CGCNN dataset.
-```bash
-python evaluate.py --property bulk-modulus --data_src CGCNN
-```
-- Example-2. Evaluate the performance of a model trained on the shear-modulus property using the MEGNET dataset.
-```bash
-python evaluate.py --property shear-modulus --data_src MEGNET
-```
-- Example-3.  Evaluate the performance of a model trained with 5 layers on the bulk-modulus property using the CGCNN dataset and the global attention technique of fixed cluster unpooling (GI M-2).
-```bash
-python evaluate.py --property bulk-modulus --data_src CGCNN --num_layers 5 --global_attention cluster --cluster_option fixed
-```
+#### Evaluating the performance of a model trained by active-learning-augemented data
+ Upon acquire active-learning augumented data, one can train and evaluate a screening model using Roost package.
+
