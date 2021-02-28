@@ -1,6 +1,8 @@
 """
-This file is used to conduct experiment
+This file is used to conduct active learning experiment
 """
+import argparse
+import sys
 
 import SearchStrategy
 import preprocessing
@@ -9,13 +11,30 @@ import model_inference
 
 if __name__ == '__main__':
 
-    filepath = './Utils/bd_AML_whole_for_autoencoder.csv'
-    dataset = 'bandgap'
-    # prepare corresponding dataset, initialize preprocessing class, set label
-    # drop duplicate records, generate sorted pandas data frame
-    p = preprocessing.preprocessing(filepath,dataset)
-    # provide initial sample points for bo to reference
+    parser = argparse.ArgumentParser(description='AGD')
+    parser.add_argument('--budget', default=50,
+                        help='Active learning budget')
+    parser.add_argument('--filepath', default='./Utils/bd_AML_whole_for_autoencoder.csv',
+                        help='Prepared dataset used for active learning')
+    parser.add_argument('--dataset', default='bandgap',
+                        help='dataset name')
+    parser.add_argument('--kappa', default=100,
+                        help='hyperparameter to control exploration and exploitation of bayesian optimization')
+    parser.add_argument('--candidate_out_path', default='./log_files/exp3_roost_recommandation_budget10000_initial1000_kappa100_127.txt',
+                        help='candidate out path')
 
+    args = parser.parse_args(sys.argv[1:])
+
+    # AGD --- parameters
+    budget = args.budget
+    filepath = args.filepath
+    dataset = args.dataset
+    kappa = args.kappa
+    candidate_out = args.candidate_out_path
+
+    p = preprocessing.preprocessing(filepath,dataset)
+
+    # provide initial sample points for bo to reference
     X, y, top10, cols = p.bo_read_data()
 
     pbounds = p.get_range_dic()
@@ -37,6 +56,6 @@ if __name__ == '__main__':
                                            initial_para = para_dic_in_list,
                                            initial_target = target,
                                            mode = 1,
-                                           boundary=pbounds, budget = 500)
+                                           boundary=pbounds, budget = budget, kappa=kappa, outpath = candidate_out)
     s.bo_opt_circle()
     print('success')
