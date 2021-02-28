@@ -62,20 +62,13 @@ pip install pymatgen
 <a name="usage"></a>
 ## Usage
 #### Training a new model
-Once all the aforementionned requirements are satisfied, one can easily train a new GATGNN by running __train.py__ in the terminal along with the specification of the appropriate flags. At the bare minimum, using --property to specify the property and --data_src to identify the dataset (CGCNN or MEGNET) should be enough to train a robust GATGNN model.
-- Example-1. Train a model on the bulk-modulus property using the CGCNN dataset.
+Once all the aforementionned requirements are satisfied, one can easily generate target property material candidates by running Experiment.py in the terminal along with the specification of the appropriate flags. At the bare minimum, using --budget to specify the active learning budget and --kappa to control balance between exploration and exploitation.
+- Example. Train a model on the bulk-modulus property using the CGCNN dataset.
 ```bash
-python train.py --property bulk-modulus --data_src CGCNN
+python Experiment.py --budget 50 --kappa 100 --candidate_out_path path/you/prefer
 ```
-- Example-2. Train a model on the shear-modulus property using the MEGNET dataset.
-```bash
-python train.py --property shear-modulus --data_src MEGNET
-```
-- Example-3. Train a model with 5 layers on the bulk-modulus property using the CGCNN dataset and the global attention technique of fixed cluster unpooling (GI M-2).
-```bash
-python train.py --property bulk-modulus --data_src CGCNN --num_layers 5 --global_attention cluster --cluster_option fixed
-``` 
-The trained model will be automatically saved under the TRAINED directory. *Pay attention to the flags used for they will be needed again to evaluate the model.
+
+The generated materials and their predicted property will be automatically generated under specified folder
 
 #### Evaluating the performance of a trained model
 Upon training a GATGNN, one can evaluate its performance using __evaluate.py__ in the terminal exactly the same way as __train.py__. *It is IMPORTANT that one runs __evaluate.py__ with the exact same flags as it was done when prior training the model.*
