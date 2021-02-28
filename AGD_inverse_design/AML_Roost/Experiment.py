@@ -15,7 +15,6 @@ if __name__ == '__main__':
     # drop duplicate records, generate sorted pandas data frame
     p = preprocessing.preprocessing(filepath,dataset)
     # provide initial sample points for bo to reference
-    # x, y is used
 
     X, y, top10, cols = p.bo_read_data()
 
