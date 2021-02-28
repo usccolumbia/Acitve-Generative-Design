@@ -9,8 +9,6 @@ import model_inference
 
 if __name__ == '__main__':
 
-    #filepath = './superconduct/train.csv'
-    #dataset = 'superconductivity'
     filepath = './Utils/bd_AML_whole_for_autoencoder.csv'
     dataset = 'bandgap'
     # prepare corresponding dataset, initialize preprocessing class, set label
@@ -22,8 +20,7 @@ if __name__ == '__main__':
     X, y, top10, cols = p.bo_read_data()
 
     pbounds = p.get_range_dic()
-    # bf = BlackboxFunc(func_name='RF', p=p)
-    # function = bf.bandgap_inference
+
     function = model_inference.inference
 
     para = np.asarray(X, dtype=np.float32)
