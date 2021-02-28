@@ -56,8 +56,8 @@ pip install pymatgen
 <a name="dataset"></a>
 ## Dataset
 1. Download the compressed file of our dataset using [this link](https://figshare.com/articles/dataset/bd_AML_whole_init_300_csv/14132270)
-2. Unzip its content ( a directory named 'DATA')
-3. Move the DATA directory in your AML_Roost directory. i.e. such that the datapath now exists.
+2. Unzip its content ( two .csv files')
+3. Move the csv files in your AML_Roost directory. i.e. such that the datapath now exists.
 
 <a name="usage"></a>
 ## Usage
