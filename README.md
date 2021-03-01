@@ -61,16 +61,22 @@ pip install pymatgen
 
 <a name="usage"></a>
 ## Usage
-#### Training a new model
+#### Generate target property material candidates
 Once all the aforementionned requirements are satisfied, one can easily generate target property material candidates by running Experiment.py in the terminal along with the specification of the appropriate flags. At the bare minimum, using --budget to specify the active learning budget and --kappa to control balance between exploration and exploitation.
 - Example. start active-learning process given budget and kappa.
 ```bash
 python Experiment.py --budget 50 --kappa 100 --candidate_out_path path/you/prefer
 ```
-
 The generated materials and their predicted property will be automatically generated under specified folder
+
+#### Training a new screening model
+```bash
+python roost-example.py --data-path /home/glard/AML/roost/roost/examples/prepared_training_data/bd_AML_whole_train.csv --train --evaluate --test-path /home/glard/AML/roost/roost/examples/prepared_training_data/bd_AML_whole_test.csv --val-size 0.2  --epochs 200 --run-id 9
+```
 
 #### Evaluating the performance of a model trained by active-learning-augemented data
  Upon acquire active-learning augumented data, one can train and evaluate a screening model's performance using Roost package and GAN generated dataset.
  The 5 pre-trained models in figshare link are corresponding to Exp1 ~ Exp3 in the paper.
-
+```bash
+python roost-example.py --test-path /home/glard/AML/roost/roost/examples/prepared_training_data/bandgap4new_model.csv --regression --evaluate --run-id 511
+```
