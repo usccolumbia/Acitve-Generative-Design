@@ -74,15 +74,23 @@ The generated materials and their predicted property will be automatically gener
  
  The 5 pre-trained models in figshare link are corresponding to Exp1, Exp2_BS, Exp2_AL, Exp3_BS, Exp3_AL.
  
- Under roost/roost/examples
+ Under roost/roost/examples, you can train and evluate model performance using hold out dataset:
 ```bash
-python roost-example.py --data-path /root_path/roost/roost/examples/prepared_training_data/bd_AML_whole_train.csv --train --evaluate --test-path /home/glard/AML/roost/roost/examples/prepared_training_data/Exp3_AL_1153.csv.csv --val-size 0.2  --epochs 200 --run-id 311
+python roost-example.py --data-path /root_path/roost/roost/examples/prepared_training_data/Exp3_AL_1153.csv --train --evaluate --val-size 0.2  --epochs 200 --run-id 311
 ```
 
 #### Evaluating the performance of a model trained by active-learning-augemented data
 
- 
+Independent test dataset is under folder roost/roost/examples/prepared_training_data/
 Under roost/roost/examples
 ```bash
 python roost-example.py --test-path /root_path/roost/roost/examples/prepared_training_data/bd_test_only.csv --regression --evaluate --run-id 3
 ```
+
+#### Screening Recovery rate test
+
+To test the recovery rate:
+```bash
+python screen_recover_rate.py
+```
+
