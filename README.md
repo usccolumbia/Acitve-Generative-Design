@@ -77,7 +77,8 @@ python roost-example.py --data-path /root_path/roost/roost/examples/prepared_tra
 #### Evaluating the performance of a model trained by active-learning-augemented data
  Upon acquire active-learning augumented data, one can train and evaluate a screening model's performance using Roost package and GAN generated dataset.
  The 5 pre-trained models in figshare link are corresponding to Exp1 ~ Exp3 in the paper.
- Under roost/roost/examples
+ 
+Under roost/roost/examples
 ```bash
 python roost-example.py --test-path /root_path/roost/roost/examples/prepared_training_data/bandgap4new_model.csv --regression --evaluate --run-id 511
 ```
