@@ -20,7 +20,7 @@ How to cite:<br />
 # Introduction
 The package provides 3 major functions:
 
-- Perform active-learning based sampling in whole design latent space (based on Bayesian Optimization).
+- Perform active-learning based sampling in the whole design latent space (based on Bayesian Optimization).
 - Train and evaluate the performance of a screening model (based on Roost).
 - Generate material cadidates' cif files based on element substitution (based on ELMD). 
 
