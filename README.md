@@ -76,7 +76,7 @@ The generated materials and their predicted property will be automatically gener
  
  Under roost/roost/examples, you can train and evluate model performance using hold out dataset:
 ```bash
-python roost-example.py --data-path /root_path/roost/roost/examples/prepared_training_data/Exp3_AL_1153.csv --train --evaluate --val-size 0.2  --epochs 200 --run-id 311
+python roost-predict.py --data-path /root_path/roost/roost/examples/prepared_training_data/Exp3_AL_1153.csv --train --evaluate --val-size 0.2  --epochs 200 --run-id 311
 ```
 
 #### Evaluating the performance of a model trained by active-learning-augemented data
@@ -84,7 +84,7 @@ python roost-example.py --data-path /root_path/roost/roost/examples/prepared_tra
 Independent test dataset is under folder roost/roost/examples/prepared_training_data/
 Under roost/roost/examples
 ```bash
-python roost-example.py --test-path /root_path/roost/roost/examples/prepared_training_data/bd_test_only.csv --regression --evaluate --run-id 3
+python roost-predict.py --test-path /root_path/roost/roost/examples/prepared_training_data/bd_test_only.csv --regression --evaluate --run-id 3
 ```
 
 #### Screening Recovery rate test
