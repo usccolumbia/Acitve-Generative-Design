@@ -35,23 +35,21 @@ The following paper describes the details of the our framework:
 Install any of the relevant packages if not already installed:
 * Bayesian Optimization (tested on 1.2.0)
 * tensorflow (tested on 2.2.0)
-* Pytorch (tested on 1.2.0) - preferably version 1.2.0 or later
+* GATGNN [documentation](https://github.com/superlouis/GATGNN).
 * Numpy   (tested on 1.18.5)
 * Pandas  (tested on 1.1.0) 
 * Scikit-learn (tested on 0.21.3) 
 * Pytmatgen (tested on 2020.3.13)
-* PyTorch-Geometric (tested on 1.1.2)
 
 - Bayesian Optimization, Pytorch, Numpy, Pandas, Scikit-learn, and Pymatgen
 ```bash
 conda install -c conda-forge bayesian-optimization
-pip install torch torchvision 
 pip install numpy
 pip install pandas
 pip install scikit-learn
 pip install pymatgen
 ```
-- PyTorch Geometric (1.4.3) [documentation](https://pytorch-geometric.readthedocs.io/en/1.4.3/notes/installation.html#installation). *our codes are compatible with version up to 1.4.3*
+
 
 <a name="dataset"></a>
 ## Dataset
