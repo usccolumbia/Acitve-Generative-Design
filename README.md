@@ -36,12 +36,13 @@ Install any of the relevant packages if not already installed:
 * Bayesian Optimization (tested on 1.2.0)
 * tensorflow (tested on 2.2.0)
 * GATGNN [documentation](https://github.com/superlouis/GATGNN).
+* RooSt [documentation](https://github.com/CompRhys/roost).
 * Numpy   (tested on 1.18.5)
 * Pandas  (tested on 1.1.0) 
 * Scikit-learn (tested on 0.21.3) 
 * Pytmatgen (tested on 2020.3.13)
 
-- Bayesian Optimization, Pytorch, Numpy, Pandas, Scikit-learn, and Pymatgen
+Bayesian Optimization, Pytorch, Numpy, Pandas, Scikit-learn, and Pymatgen
 ```bash
 conda install -c conda-forge bayesian-optimization
 pip install numpy
