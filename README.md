@@ -70,14 +70,15 @@ python Experiment.py --budget 50 --kappa 100 --candidate_out_path path/you/prefe
 The generated materials and their predicted property will be automatically generated under specified folder
 
 #### Training a new screening model
+ Under roost/roost/examples
 ```bash
-python roost-example.py --data-path /home/glard/AML/roost/roost/examples/prepared_training_data/bd_AML_whole_train.csv --train --evaluate --test-path /home/glard/AML/roost/roost/examples/prepared_training_data/bd_AML_whole_test.csv --val-size 0.2  --epochs 200 --run-id 9
+python roost-example.py --data-path /root_path/roost/roost/examples/prepared_training_data/bd_AML_whole_train.csv --train --evaluate --test-path /home/glard/AML/roost/roost/examples/prepared_training_data/bd_AML_whole_test.csv --val-size 0.2  --epochs 200 --run-id 9
 ```
 
 #### Evaluating the performance of a model trained by active-learning-augemented data
  Upon acquire active-learning augumented data, one can train and evaluate a screening model's performance using Roost package and GAN generated dataset.
  The 5 pre-trained models in figshare link are corresponding to Exp1 ~ Exp3 in the paper.
- Under roost/roost
+ Under roost/roost/examples
 ```bash
-python roost-example.py --test-path /home/glard/AML/roost/roost/examples/prepared_training_data/bandgap4new_model.csv --regression --evaluate --run-id 511
+python roost-example.py --test-path /root_path/roost/roost/examples/prepared_training_data/bandgap4new_model.csv --regression --evaluate --run-id 511
 ```
